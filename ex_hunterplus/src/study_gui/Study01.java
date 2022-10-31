@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Enumeration;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,6 +23,7 @@ public class Study01 {
 	static JLabel lbl, lbl2, lbl3, imgLbl, imgLbl2, imgLbl3;
 	static ImageIcon bumImg, siniImg, gabiImg;
 	static JButton btn1, btn2, btn3;
+	static JFrame frm;
 
 	// 몬스터와 인간 객체 생성
 	static Bum b1 = new Bum("장산범");
@@ -42,7 +45,7 @@ public class Study01 {
 		}
 
 		// [start] 프레임 설정
-		JFrame frm = new JFrame(); // 프레임 선언
+		frm = new JFrame(); // 프레임 선언
 		frm.setTitle("몬스터 헌터"); // 프레임 제목설정
 		frm.setSize(800, 600); // 프레임 크기설정
 		frm.setLocationRelativeTo(null); // 프레임을 화면 가운데에 배치
@@ -152,14 +155,36 @@ public class Study01 {
 
 		// 확률추가 : 랜덤메서드 0,1,2 중 0이 나오면 공격 빗나감.
 		int randomNum = (int) (Math.random() * 3);
+		JLabel targetSlime; // 회피 시 몬스터 그림을 담을 변수.
 
 		if (randomNum == 0) {
 			lbl.setText(h.name + "의 공격은 빗나갔다!");
+
+			
+			if (s == b1) { // 공격 빗나갈 시 몬스터 이미지 회피.
+				targetSlime = imgLbl; // 각 몬스터의 그림을 각자 담는다.
+			} else if (s == d1) {
+				targetSlime = imgLbl2;
+			} else {
+				targetSlime = imgLbl3;
+			}
+			
+			// 대상 몬스터를 우측으로 20만큼 이동시킨다.
+			targetSlime.setBounds(targetSlime.getX() + 20, 200, 150, 150);
+			
+			// 0.5초 후에 대상 몬스터를 원위치 시킨다.
+			new Timer().schedule(new TimerTask() {
+				@Override
+				public void run() {
+					targetSlime.setBounds(targetSlime.getX() - 20, 200, 150, 150);
+				}
+			}, 500);
+			
 		} else {
 			h.attack(s);
 		}
 
-		if (s instanceof Bum) { // 범 클래스형일 경우 확률추가 : 1/3 확률로 장산범이 범 클래스 치유, 그 외 숫자가 나오면 공격.
+		if (s instanceof Bum) { // 공격 대상이 범 클래스형일 경우 확률추가 : 1/3 확률로 장산범이 범 클래스 치유, 그 외 숫자가 나오면 공격.
 
 			randomNum = (int) (Math.random() * 3);
 
@@ -169,7 +194,7 @@ public class Study01 {
 				s.attack(h);
 			}
 
-		} else { // 다크 클래스일 경우 확률추가 : 1/3 확률로 강한 공격.
+		} else { // 공격 대상이 다크 클래스일 경우 확률추가 : 1/3 확률로 강한 공격, 그 외 숫자가 나오면 기본공격.
 
 			randomNum = (int) (Math.random() * 3);
 

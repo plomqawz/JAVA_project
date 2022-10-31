@@ -53,12 +53,18 @@ class Human {
         
         s.hp = s.hp - 30;
         
-        if(s.hp < 1) {
+        if(s.hp < 1) { // 몬스터 사망 시.
         	if (s == Study01.b1) {
-        		Study01.btn1.setEnabled(false);
+        		Study01.frm.remove(Study01.imgLbl); // 이미지 없애기.
+        		Study01.frm.repaint(); // 없앤 결과를 다시 그려줘야함.
+        		Study01.btn1.setEnabled(false); // 버튼 비활성화.
         	} else if (s == Study01.d1) {
+        		Study01.frm.remove(Study01.imgLbl2);
+        		Study01.frm.repaint();
         		Study01.btn2.setEnabled(false);
         	} else {
+        		Study01.frm.remove(Study01.imgLbl3);
+        		Study01.frm.repaint();
         		Study01.btn3.setEnabled(false);
         	}
 
