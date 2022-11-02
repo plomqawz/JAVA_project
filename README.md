@@ -7,9 +7,9 @@
 <br>● 개인컴퓨터의 이클립스 버전이 달라서 호환이 안됐다.<p>
 <h2>해결책</h3><p>1. 구버전의 JRE라이브러리 삭제하고 재설치.<br>2. 환경변수 여러개 설정되어 있으면 중복되는 부분 삭제.<br>3. 구버전에서 자바프로젝트 생성해서 소스코드 복사.<p>
 <h2>셀프 피드백</h3><p>자바 스윙과 액션리스너 등 GUI 요소를 다뤄본 것은 좋았지만, 소켓을 이용한 통신기능이나 DB연결 및 데이터 CRUD 기능을 구현하지 못한게 아쉽다.<p>
-<h2>참고한 사이트</h3><p><a href="https://ridd-coding.tistory.com/24?category=772279">ridd님 티스토리</a><br>
-  <a href="https://www.youtube.com/playlist?list=PLHGvDasahwZPXuHYGhdMhU6Csjz1CjOi9">Danny님 유튜브</a><br>
-  <a href="https://www.youtube.com/playlist?list=PLm64kvQJ_78BXmJM1ICFYfRkoN83FvCwe">욱쌤님 유튜브</a><p>
+<h2>참고한 사이트</h3><p><a href="https://ridd-coding.tistory.com/24?category=772279">ridd님 티스토리 : 슬라임게임 튜토리얼</a><br>
+  <a href="https://www.youtube.com/playlist?list=PLHGvDasahwZPXuHYGhdMhU6Csjz1CjOi9">Danny님 유튜브 : JAVA swing 기초</a><br>
+  <a href="https://www.youtube.com/playlist?list=PLm64kvQJ_78BXmJM1ICFYfRkoN83FvCwe">욱쌤님 유튜브 : JAVA swing GUI</a><p>
 <h2>추가하고 싶은 기능</h2><p>1. 앞뒤로 프레임 생성.<br>2. 타이머 등을 이용하여 점수 구현 및 랭킹 추가.<p>
 <h2>플레이화면</h2><p>
 <img src="https://user-images.githubusercontent.com/114118261/199097634-b85e4360-1875-48ef-a04f-67bef6910021.PNG">
